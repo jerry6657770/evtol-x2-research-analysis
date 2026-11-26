@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html data-src-ver="2d4e2f54" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>作业一 · 小鹏汇天旅航者X2 全方位调研与分析</title>
+<style>
+  :root{
+    --blue:#165DFF; --blue-dark:#0B3FA8; --bg:#F3F6FC; --card:#FFFFFF;
+    --ink:#1C2733; --sub:#5A6B7D; --line:#E4ECF7; --ok:#18A058; --warn:#FA8C16;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* Hero */
+  .hero{position:relative;color:#fff;border-radius:0 0 28px 28px;overflow:hidden}
+  .hero img{width:100%;height:420px;object-fit:cover;display:block}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,40,90,.35) 0%,rgba(11,40,90,.82) 100%)}
+  .hero-inner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 22px}
+  .hero-inner .wrap{padding:0}
+  .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:4px 14px;border-radius:20px;font-size:13px;letter-spacing:1px;width:fit-content;margin-bottom:14px}
+  .hero h1{font-size:34px;font-weight:900;letter-spacing:.5px}
+  .hero p{margin-top:10px;color:rgba(255,255,255,.95);text-shadow:0 1px 3px rgba(0,10,30,.45);max-width:640px;font-size:15px}
+
+  /* 导航 */
+  .nav{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0}
+  .nav a{text-decoration:none;color:var(--blue);background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:20px;font-size:14px;transition:.2s}
+  .nav a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  section{background:var(--card);border-radius:18px;padding:30px 28px;margin-bottom:24px;box-shadow:0 4px 18px rgba(22,93,255,.06)}
+  h2{font-size:22px;font-weight:700;color:var(--blue-dark);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  h2::before{content:"";width:6px;height:22px;border-radius:4px;background:var(--blue)}
+  h3{font-size:16px;margin:16px 0 10px;color:var(--ink)}
+  p{color:var(--sub);margin:8px 0}
+  ul{padding-left:22px;color:var(--sub)}
+  li{margin:6px 0}
+
+  /* 参数表 */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:11px 14px;text-align:left}
+  th{background:#EEF4FF;color:var(--blue-dark);font-weight:600;width:32%}
+  td{color:var(--ink)}
+
+  /* 图片网格 */
+  .img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+  .img-grid figure{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .img-grid img{width:100%;height:170px;object-fit:cover;display:block}
+  .img-grid figcaption{font-size:13px;color:var(--sub);padding:8px 12px;background:#FAFCFF}
+
+  /* 卡片 */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card.ok{border-left:4px solid var(--ok)}
+  .card.warn{border-left:4px solid var(--warn)}
+  .card h4{font-size:15px;margin-bottom:8px}
+  .card.ok h4{color:var(--ok)}
+  .card.warn h4{color:var(--warn)}
+
+  /* 场景标签 */
+  .scenes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+  .scene{display:flex;gap:14px;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .scene .ico{flex:0 0 46px;height:46px;border-radius:12px;background:#EEF4FF;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .scene h4{font-size:15px}
+  .scene p{font-size:13.5px;margin:4px 0 0}
+
+  .summary{background:linear-gradient(135deg,#EEF4FF,#F7FBFF);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .summary p{color:var(--ink)}
+  .meta{font-size:13px;color:var(--sub);text-align:center;padding:24px 0 10px}
+
+
+  .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+  .tbl table{margin:0}
+  @media(max-width:760px){
+    .tbl table{min-width:560px}
+  }
+  @media(max-width:760px){
+    .hero img{height:300px}
+    .hero h1{font-size:24px}
+    .grid2,.scenes,.img-grid{grid-template-columns:1fr}
+    section{padding:22px 18px}
+  }
+</style>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🛩️&lt;/text&gt;&lt;/svg&gt;" rel="icon"/><meta content="小鹏汇天「旅航者 X2」eVTOL 飞行汽车调研分析：产品基础、关键技术拆解、技术可行性、应用场景与市场可行性。" name="description"/><meta content="作业一 · 小鹏汇天旅航者X2 全方位调研与分析" property="og:title"/><meta content="article" property="og:type"/><meta content="#C82423" name="theme-color"/></head>
+<body>
+<header class="hero">
+<img alt="小鹏汇天旅航者X2于城市CBD起降" loading="lazy" src="assets/img1.jpg"/>
+<div class="hero-inner">
+<div class="wrap">
+<span class="tag">课程作业一 · 全方位调研与分析</span>
+<h1>小鹏汇天「旅航者 X2」eVTOL 飞行汽车调研分析</h1>
+<p>以国内代表型载人电动垂直起降飞行器为对象，从产品概况、关键技术、技术可行性、应用场景与市场可行性五个维度展开深度分析。</p>
+</div>
+</div>
+</header>
+<div class="wrap">
+<nav class="nav">
+<a href="#overview">产品概况</a>
+<a href="#tech">关键技术</a>
+<a href="#feasibility">技术可行性</a>
+<a href="#scenes">应用场景</a>
+<a href="#market">市场可行性</a>
+<a href="#summary">总结</a>
+</nav>
+<!-- 一、产品概况 -->
+<section id="overview">
+<h2>一、产品基础介绍</h2>
+<p>旅航者 X2 是小鹏汇天自主研发的第五代载人电动垂直起降飞行器（eVTOL），采用封闭式双人座舱与多旋翼构型，机身以碳纤维复合材料打造，外观与小鹏汽车共享家族化设计基因。它是国内较早提出申请并成功获批特许飞行证的有人驾驶 eVTOL 产品之一，主打城市低空短途出行与低空文旅演示场景。</p>
+<div class="img-grid">
+<figure><img alt="旅航者X2机身结构" loading="lazy" src="assets/img2.jpg"/><figcaption>碳纤维机身与四轴八桨布局</figcaption></figure>
+<figure><img alt="旅航者X2空中飞行" loading="lazy" src="assets/img3.jpg"/><figcaption>城市上空自主飞行演示</figcaption></figure>
+<figure><img alt="旅航者X2停靠停机坪" loading="lazy" src="assets/img4.jpg"/><figcaption>低空经济示范岛停机坪</figcaption></figure>
+</div>
+<h3>主要技术参数</h3>
+<div class="tbl"><table>
+<tr><th>参数项</th><th>指标 / 说明</th></tr>
+<tr><td>机型类别</td><td>纯电多旋翼 eVTOL，封闭式双人座舱</td></tr>
+<tr><td>旋翼布局</td><td>四轴八桨分布式电推进</td></tr>
+<tr><td>空机重量（含电池）</td><td>约 560 kg</td></tr>
+<tr><td>最大载重</td><td>约 200 kg（两名乘员及随身物品）</td></tr>
+<tr><td>最大飞行高度</td><td>1000 m</td></tr>
+<tr><td>最大平飞速度</td><td>130 km/h</td></tr>
+<tr><td>续航时间</td><td>约 25 min（受电池能量密度与载重影响）</td></tr>
+<tr><td>机身材料</td><td>碳纤维复合材料承力结构</td></tr>
+<tr><td>核心功能</td><td>自动驾驶、雷达测距、感知避障、一键启动 / 返航 / 降落</td></tr>
+</table></div>
+</section>
+<!-- 二、关键技术 -->
+<section id="tech">
+<h2>二、关键技术拆解</h2>
+<div class="tbl"><table>
+<tr><th>技术系统</th><th>技术构成与作用</th></tr>
+<tr><td>分布式电推进系统</td><td>多个电机与螺旋桨独立布置，单组动力失效时其余动力可维持可控降落；通过差速控制实现姿态与航向调整。</td></tr>
+<tr><td>飞控与自主飞行</td><td>飞控计算机统筹姿态稳定、航线跟踪、自动悬停与一键返航，降低对飞行员操作经验的依赖。</td></tr>
+<tr><td>环境感知与避障</td><td>搭载雷达测距与视觉感知，识别障碍物与相对距离，为低空城市环境飞行提供避障输入。</td></tr>
+<tr><td>轻量化承力结构</td><td>碳纤维机身在保证结构刚度的同时控制整机重量，为载重与续航留出空间。</td></tr>
+<tr><td>纯电储能与热管理</td><td>动力电池提供全部动力，配合电池管理与热管理系统，保障充放电安全与工况稳定。</td></tr>
+</table></div>
+</section>
+<!-- 三、技术可行性 -->
+<section id="feasibility">
+<h2>三、技术可行性分析</h2>
+<div class="grid2">
+<div class="card ok">
+<h4>✔ 已具备的成熟基础</h4>
+<ul>
+<li>多旋翼构型控制逻辑成熟，悬停与起降相对平稳，技术路线稳妥；</li>
+<li>纯电驱动，振动与噪声相对传统燃油直升机更易控制；</li>
+<li>自动驾驶与感知避障经过多轮城市场景试飞验证；</li>
+<li>碳纤维结构、电推进与供应链在国内已有配套基础。</li>
+</ul>
+</div>
+<div class="card warn">
+<h4>⚠ 仍受限的技术瓶颈</h4>
+<ul>
+<li>电池能量密度有限，续航短、载重偏小，难以承担长航程任务；</li>
+<li>低空乱流、阵风对悬停稳定性与乘坐舒适性影响明显；</li>
+<li>电池衰减、低温功率与热管理仍是长期可靠性挑战；</li>
+<li>复杂气象（雨、雾、大风）下感知与飞行能力受限。</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:14px">综合判断：在<strong>短途、限定空域、良好气象</strong>的演示与试点场景下，技术可行性已经得到验证；面向规模化日常载人运营，仍需在电池、可靠性与适航技术上持续突破。</p>
+</section>
+<!-- 四、应用场景 -->
+<section id="scenes">
+<h2>四、应用场景分析</h2>
+<div class="scenes">
+<div class="scene"><div class="ico">🚁</div><div><h4>城市短途空中通勤</h4><p>跨江、跨枢纽的点对点低空出行，缓解地面交通拥堵，是 UAM 城市空中交通的核心设想场景。</p></div></div>
+<div class="scene"><div class="ico">🚑</div><div><h4>应急救援与医疗转运</h4><p>急救人员、医疗样本或设备快速抵达地面车辆难以进入的区域，承担侦察与短途转运任务。</p></div></div>
+<div class="scene"><div class="ico">🌄</div><div><h4>低空文旅与观光体验</h4><p>景区、城市地标周边的低空游览与体验飞行，是当前商业落地较早、需求较明确的场景。</p></div></div>
+<div class="scene"><div class="ico">📦</div><div><h4>物资投送与巡检</h4><p>偏远地区或复杂地形的应急物资投送、电力与管线空中巡检等 B 端作业场景。</p></div></div>
+</div>
+</section>
+<!-- 五、市场可行性 -->
+<section id="market">
+<h2>五、市场可行性分析</h2>
+<div class="tbl"><table>
+<tr><th>维度</th><th>现状与判断</th></tr>
+<tr><td>政策与产业环境</td><td>低空经济被列为重点扶持方向，多地建设示范岛与起降设施，产业链与资本关注度较高。</td></tr>
+<tr><td>短期市场结构</td><td>需求集中在文旅体验、应急救援、展示演示等 B 端与试点项目，付费意愿与场景相对明确。</td></tr>
+<tr><td>规模化制约因素</td><td>适航认证周期长、空域管理与航线规划不完善、起降坪等基础设施不足、整机售价与运维成本偏高。</td></tr>
+<tr><td>长期展望</td><td>随法规标准、空域管理、电池技术与基础设施逐步成熟，城市低空出行具备较大的中长期商业潜力。</td></tr>
+</table></div>
+</section>
+<!-- 六、总结 -->
+<section id="summary">
+<h2>六、调研总结</h2>
+<div class="summary">
+<p>旅航者 X2 代表了国内 eVTOL 稳妥、务实的技术路线：以成熟多旋翼构型为基础，结合纯电推进、自主飞控与轻量化结构，完成了多轮城市场景试飞与特许飞行验证。它在短途试点场景下技术可行、市场方向清晰，但现阶段仍属于技术验证与示范运营阶段，距离大规模民用普及，还受制于电池续航、适航认证、空域管理、地面配套设施与成本等多重约束。</p>
+<p style="margin-top:10px">整体来看，该机型是观察中国低空经济与飞行汽车产业化进程的一个典型样本：<strong>技术先行验证、场景逐步落地、法规与配套同步完善</strong>，是其走向商业化的基本节奏。</p>
+</div>
+</section>
+<p class="meta">课程作业一 · 飞行汽车全方位调研与分析 ｜ 分析对象：小鹏汇天 旅航者 X2</p>
+</div>
+</body>
+</html>
